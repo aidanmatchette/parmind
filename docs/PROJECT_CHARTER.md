@@ -1,5 +1,11 @@
 # ParMind Project Charter
 
+## Mission
+
 ParMind exists to help golfers make one better decision at a time.
 
-This document defines how we build ParMind: our mission, values, product principles, engineering standards, design standards, and decision-making process.
+We believe better golf is built through better decisions, not better scorekeeping.
+
+Our purpose is to help golfers think clearly, commit confidently, learn intentionally, and improve continuously.
+
+Every feature, design decision, and engineering decision should reinforce this mission.
