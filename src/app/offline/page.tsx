@@ -1,0 +1,1 @@
+export default function OfflinePage(){return <main className="mx-auto grid min-h-screen max-w-md place-items-center px-6 text-center"><div><h1 className="text-3xl font-black">ParMind is offline</h1><p className="mt-3 text-sm text-stone-600">Open once while online, then your active round is available offline.</p></div></main>}

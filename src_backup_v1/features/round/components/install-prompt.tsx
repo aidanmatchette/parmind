@@ -1,0 +1,2 @@
+"use client"; import {Smartphone} from "lucide-react";
+export function InstallPrompt(){return <aside className="mb-3 rounded-2xl border border-parchment-200 bg-white/55 p-3 text-xs leading-5 text-stone-600 shadow-card"><div className="flex gap-2"><Smartphone className="mt-0.5 h-4 w-4 shrink-0 text-parchment-500"/><div><strong className="text-ink">iPhone install:</strong> deploy to a real HTTPS URL, open in Safari, then Share → Add to Home Screen.</div></div></aside>}

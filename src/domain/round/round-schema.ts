@@ -1,0 +1,3 @@
+import {z} from "zod";
+export const holeScoreSchema=z.object({holeNumber:z.number().int().min(1).max(18),par:z.number().int().min(3).max(6),strokes:z.number().int().min(0).max(12),putts:z.number().int().min(0).max(6),penalties:z.number().int().min(0).max(6),plan:z.boolean(),decision:z.boolean(),commit:z.boolean(),emotion:z.boolean(),heroAttempt:z.boolean(),note:z.string()});
+export const roundSchema=z.object({id:z.string(),player:z.string(),course:z.string(),date:z.string(),targetScore:z.number().int().min(50).max(120),holes:z.array(holeScoreSchema).length(18),reflection:z.object({bestDecision:z.string(),costliestDecision:z.string(),nextRoundCommitment:z.string()}),createdAt:z.string(),updatedAt:z.string()});
