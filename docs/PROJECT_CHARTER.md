@@ -59,3 +59,45 @@ ParMind is never finished.
 We continually refine our product, our engineering practices, and our understanding of the game.
 
 Small improvements, compounded over time, create exceptional results.
+
+## Product Principles
+
+### Process Over Outcome
+
+ParMind reinforces disciplined decision-making over short-term results.
+
+A good decision can produce a poor outcome, and a poor decision can produce a great outcome. We measure the quality of the process because, over time, good process produces better golf.
+
+---
+
+### Every Feature Must Earn Its Place
+
+Every feature must make the golfer a better decision-maker.
+
+If a feature does not clearly support that mission, it does not belong in ParMind.
+
+---
+
+### Calm by Default
+
+Golf demands focus.
+
+ParMind should reduce stress, not add to it.
+
+Every screen should feel calm, intentional, and free of unnecessary distractions.
+
+---
+
+### One-Handed First
+
+ParMind is designed to be used while walking a golf course.
+
+Core interactions should be fast, simple, and comfortably reachable with one hand.
+
+---
+
+### Offline First
+
+Golf courses do not guarantee reliable internet.
+
+ParMind should remain fully functional without a network connection and synchronize data only when connectivity returns.
