@@ -101,3 +101,41 @@ Core interactions should be fast, simple, and comfortably reachable with one han
 Golf courses do not guarantee reliable internet.
 
 ParMind should remain fully functional without a network connection and synchronize data only when connectivity returns.
+
+## Engineering Principles
+
+### Clean Before Clever
+
+We value code that is easy to understand over code that is technically impressive.
+
+Future maintainability always outweighs short-term cleverness.
+
+---
+
+### Architecture Over Convenience
+
+Shortcuts that weaken the architecture are avoided whenever practical.
+
+We build systems that are easy to extend, test, and reason about.
+
+---
+
+### Quality Is the Default
+
+Quality is not something added at the end of a feature.
+
+It is expected throughout design, implementation, testing, and review.
+
+---
+
+### Small, Focused Components
+
+Every component, function, and module should have a single, well-defined responsibility.
+
+When something becomes difficult to understand, it should be simplified or divided.
+
+---
+
+### Decisions Are Documented
+
+Important product, design, and engineering decisions are recorded so future contributors understand not only what was built, but why it was built.
