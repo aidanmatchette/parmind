@@ -139,3 +139,35 @@ When something becomes difficult to understand, it should be simplified or divid
 ### Decisions Are Documented
 
 Important product, design, and engineering decisions are recorded so future contributors understand not only what was built, but why it was built.
+
+## Decision Framework
+
+Before introducing a new feature, significant design change, or architectural decision, we ask:
+
+### 1. Does this help golfers become better decision-makers?
+
+If the answer is no, it does not belong in ParMind.
+
+---
+
+### 2. Does it reduce cognitive load?
+
+The app should simplify golf, not complicate it.
+
+---
+
+### 3. Is it consistent with our product principles?
+
+Every decision should reinforce the principles defined in this charter.
+
+---
+
+### 4. Can it be explained in one sentence?
+
+If we cannot clearly explain why a feature exists, we do not yet understand it well enough to build it.
+
+---
+
+### 5. Will we still be proud of this decision five years from now?
+
+We optimize for long-term product quality over short-term convenience.
