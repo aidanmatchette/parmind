@@ -1,3 +1,5 @@
+import { SegmentedControl } from "../primitives/SegmentedControl";
+
 type ScorePickerProps = {
   value: number;
   min: number;
@@ -11,23 +13,24 @@ export function ScorePicker({
   max,
   onChange,
 }: ScorePickerProps) {
-  const scores = Array.from(
+  const options = Array.from(
     { length: max - min + 1 },
-    (_, index) => min + index,
+    (_, index) => {
+      const score = min + index;
+
+      return {
+        label: String(score),
+        value: score,
+      };
+    },
   );
 
   return (
-    <div role="group" aria-label="Select score">
-      {scores.map((score) => (
-        <button
-          key={score}
-          type="button"
-          aria-pressed={score === value}
-          onClick={() => onChange(score)}
-        >
-          {score}
-        </button>
-      ))}
-    </div>
+    <SegmentedControl
+      label="Select score"
+      value={value}
+      options={options}
+      onChange={onChange}
+    />
   );
 }
