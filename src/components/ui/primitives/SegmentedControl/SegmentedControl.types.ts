@@ -8,4 +8,5 @@ export type SegmentedControlProps<T> = {
   value: T | null;
   options: readonly SegmentedOption<T>[];
   onChange: (value: T) => void;
+  disabled?: boolean;
 };

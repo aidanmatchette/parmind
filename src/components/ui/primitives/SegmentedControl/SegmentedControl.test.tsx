@@ -24,17 +24,9 @@ describe("SegmentedControl", () => {
       screen.getByRole("group", { name: "Select score" }),
     ).toBeInTheDocument();
 
-    expect(
-      screen.getByRole("button", { name: "Three" }),
-    ).toBeInTheDocument();
-
-    expect(
-      screen.getByRole("button", { name: "Four" }),
-    ).toBeInTheDocument();
-
-    expect(
-      screen.getByRole("button", { name: "Five" }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Three" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Four" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Five" })).toBeInTheDocument();
   });
 
   it("marks only the selected option as pressed", () => {
@@ -69,9 +61,7 @@ describe("SegmentedControl", () => {
       />,
     );
 
-    await user.click(
-      screen.getByRole("button", { name: "Five" }),
-    );
+    await user.click(screen.getByRole("button", { name: "Five" }));
 
     expect(onChange).toHaveBeenCalledOnce();
     expect(onChange).toHaveBeenCalledWith(5);
@@ -93,10 +83,31 @@ describe("SegmentedControl", () => {
       />,
     );
 
-    await user.click(
-      screen.getByRole("button", { name: "No" }),
-    );
+    await user.click(screen.getByRole("button", { name: "No" }));
 
     expect(onChange).toHaveBeenCalledWith(false);
+  });
+
+  it("does not allow selection when disabled", async () => {
+    const user = userEvent.setup();
+    const onChange = vi.fn();
+
+    render(
+      <SegmentedControl
+        label="Select score"
+        value={4}
+        options={options}
+        onChange={onChange}
+        disabled
+      />,
+    );
+
+    const button = screen.getByRole("button", { name: "Five" });
+
+    expect(button).toBeDisabled();
+
+    await user.click(button);
+
+    expect(onChange).not.toHaveBeenCalled();
   });
 });

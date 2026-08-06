@@ -1,2 +1,8 @@
-import { AppShell } from "@/features/round/components/app-shell";
-export default function Home(){ return <AppShell/> }
+export default function HomePage() {
+  return (
+    <main>
+      <h1>ParMind</h1>
+      <p>Better golf through better decisions.</p>
+    </main>
+  );
+}

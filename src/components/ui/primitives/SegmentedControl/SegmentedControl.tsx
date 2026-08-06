@@ -5,6 +5,7 @@ export function SegmentedControl<T>({
   value,
   options,
   onChange,
+  disabled = false,
 }: SegmentedControlProps<T>) {
   return (
     <div role="group" aria-label={label}>
@@ -12,6 +13,7 @@ export function SegmentedControl<T>({
         <button
           key={option.label}
           type="button"
+          disabled={disabled}
           aria-pressed={Object.is(value, option.value)}
           onClick={() => onChange(option.value)}
         >
