@@ -1,6 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import {
+  AdvantageMissReasonPicker,
+  type AdvantageMissReason,
+} from "@/components/ui/AdvantageMissReasonPicker";
 import { AdvantagePicker } from "@/components/ui/AdvantagePicker";
 import { PenaltyPicker } from "@/components/ui/PenaltyPicker";
 import { PuttPicker } from "@/components/ui/PuttPicker";
@@ -17,9 +21,24 @@ export function HoleCard({
   const [penalties, setPenalties] = useState(0);
   const [reachedAdvantageZone, setReachedAdvantageZone] =
     useState<boolean | null>(null);
+  const [advantageMissReason, setAdvantageMissReason] =
+    useState<AdvantageMissReason | null>(null);
+
+  const canSave =
+    reachedAdvantageZone === true ||
+    (reachedAdvantageZone === false &&
+      advantageMissReason !== null);
+
+  const handleAdvantageChange = (reached: boolean) => {
+    setReachedAdvantageZone(reached);
+
+    if (reached) {
+      setAdvantageMissReason(null);
+    }
+  };
 
   const handleSave = () => {
-    if (reachedAdvantageZone === null) {
+    if (!canSave || reachedAdvantageZone === null) {
       return;
     }
 
@@ -30,7 +49,10 @@ export function HoleCard({
       putts,
       penalties,
       reachedAdvantageZone,
-      advantageMissReason: null,
+      advantageMissReason:
+        reachedAdvantageZone === false
+          ? advantageMissReason
+          : null,
     });
   };
 
@@ -61,12 +83,19 @@ export function HoleCard({
 
       <AdvantagePicker
         value={reachedAdvantageZone}
-        onChange={setReachedAdvantageZone}
+        onChange={handleAdvantageChange}
       />
+
+      {reachedAdvantageZone === false && (
+        <AdvantageMissReasonPicker
+          value={advantageMissReason}
+          onChange={setAdvantageMissReason}
+        />
+      )}
 
       <button
         type="button"
-        disabled={reachedAdvantageZone === null}
+        disabled={!canSave}
         onClick={handleSave}
       >
         Save hole
