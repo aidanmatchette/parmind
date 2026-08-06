@@ -5,3 +5,4 @@ export {
 
 export type { HoleResult } from "./HoleResult";
 export type { Round } from "./Round";
+export { recordHoleResult } from "./recordHoleResult";
