@@ -8,18 +8,22 @@ import {
 } from "@/domain/round";
 import { HoleCard } from "../HoleCard";
 
-const INITIAL_ROUND: Round = {
-  id: "round-1",
-  courseName: null,
-  teeName: null,
-  currentHoleNumber: 1,
-  holes: [],
+type RoundPageProps = {
+  initialHoleNumber?: number;
 };
 
 const DEFAULT_PAR = 4;
 
-export function RoundPage() {
-  const [round, setRound] = useState<Round>(INITIAL_ROUND);
+export function RoundPage({
+  initialHoleNumber = 1,
+}: RoundPageProps) {
+  const [round, setRound] = useState<Round>({
+    id: "round-1",
+    courseName: null,
+    teeName: null,
+    currentHoleNumber: initialHoleNumber,
+    holes: [],
+  });
 
   const handleSaveHole = (result: HoleResult) => {
     setRound((currentRound) =>
@@ -31,6 +35,19 @@ export function RoundPage() {
     round.holes.length === 1
       ? "1 hole recorded"
       : `${round.holes.length} holes recorded`;
+
+  const isRoundComplete =
+    round.currentHoleNumber === 18 &&
+    round.holes.some((hole) => hole.holeNumber === 18);
+
+  if (isRoundComplete) {
+    return (
+      <main>
+        <h1>Round complete</h1>
+        <p>{recordedHoleLabel}</p>
+      </main>
+    );
+  }
 
   return (
     <main>
